@@ -1,0 +1,88 @@
+"nameOld","nameNew"
+"Taxonomic Group","TaxGrp"
+"Species","SNAME"
+"English Name","SCOMNAME"
+"Geographic Area","GeographicArea"
+"Cave/GW","Cave/GW"
+"Migratory","Migratory"
+"GRank","GRank"
+"SRank","SRank"
+"A >6.0F",tempscp_gt6F
+"A 5.5F",tempscp_5.5F
+"A 5.1F",tempscp_5.1F
+"A 4.5F",tempscp_4.5F
+"A 3.9F",tempscp_3.9F
+"A <3.9F",tempscp_lt3.9F
+"< -0.119",moistscp_lt0.11
+"-0.11899999999999999",moistscp_0.11
+"-9.6000000000000002E-2",moistscp_9.6
+"-7.2999999999999995E-2",moistscp_7.3
+"-0.05",moistscp_05
+">-0.028",moistscp_gt028
+">7",MigrExp_gt7
+"6-7",MigrExp_67
+"4-5",MigrExp_45
+"2-3",MigrExp_23
+"B1...25",B1
+"B1...26",B1_comments
+"B2a...27",B2a
+"B2a...28",B2a_comments
+"B2b...29",B2b
+"B2b...30",B2b_comments
+"B3...31",B3
+"B3...32",B3_comments
+"C1...33",C1
+"C1...34",C1_comments
+"C2ai...35",C2ai
+"C2ai...36",C2ai_comments
+"C2aii...37",C2aii
+"C2aii...38",C2aii_comments
+"C2bi...39",C2bi
+"C2bi...40",C2bi_comments
+"C2bii...41",C2bii
+"C2bii...42",C2bii_comments
+"C2c...43",C2c
+"C2c...44",C2c_comments
+"C2d...45",C2d
+"C2d...46",C2d_comments
+"C3...47",C3
+"C3...48",C3_comments
+"C4a...49",C4a
+"C4a...50",C4a_comments
+"C4b...51",C4b
+"C4b...52",C4b_comments
+"C4c...53",C4c
+"C4c...54",C4c_comments
+"C4d...55",C4d
+"C4d...56",C4d_comments
+"C4e...57",C4e
+"C4e...58",C4e_comments
+"C4f...59",C4f
+"C4f...60",C4f_comments
+"C4g...61",C4g
+"C4g...62",C4g_comments
+"C5a...63",C5a
+"C5a...64",C5a_comments
+"C5b...65",C5b
+"C5b...66",C5b_comments
+"C5c...67",C5c
+"C5c...68",C5c_comments
+"C6...69",C6
+"C6...70",C6_comments
+"D1...71",D1
+"D1...72",D1_comments
+"D2...73",D2
+"D2...74",D2_comments
+"D3...75",D3
+"D3...76",D3_comments
+"D4...77",D4_ProArea
+"D4...78",D4_comments
+"Index",Index
+"Migr Exp",MigrExp
+"Confidence",Confidence
+"B",DataCompB
+"C",DataCompC
+"D",DataCompD
+"Assessment Notes",AssessmentNotes
+"Assessor",Assessor
+"Date Pasted",DatePasted

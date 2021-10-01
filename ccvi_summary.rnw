@@ -1,0 +1,119 @@
+%This knitr document is called by the knit2pdf ....
+\documentclass{article}
+\usepackage[utf8]{inputenc} %\UseRawInputEncoding
+\usepackage{fontspec}
+\setmainfont{Gill Sans MT}
+\pdfmapfile{=pdftex35.map} %I think this fixes some MikTex font reading issues
+\usepackage[margin=10pt,font=small]{caption}
+\usepackage{afterpage}
+\usepackage{geometry}
+%\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{url}
+\urlstyle{same}
+\usepackage{graphicx}
+\graphicspath{ {../../z_BaseImages/}{../../z_BaseImages/EO_images/}{photos/}{../../DraftSiteAccounts/z_photos}{../../z_BaseImages/NHA_Maps/} }
+\usepackage[style=authoryear,hyperref=false]{biblatex}
+\addbibresource{../../citations/PNHP_refs.bib}
+% \usepackage{cite}
+\usepackage{enumitem}
+\setlist{nolistsep}
+\usepackage{fancyhdr} %for headers,footers
+% \usepackage{float}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,      
+  urlcolor=blue,
+}
+\usepackage{lastpage}
+
+\geometry{letterpaper, top=0.45in, bottom=0.75in, left=0.75in, right=0.75in}
+\pagestyle{fancy} \fancyhf{} \renewcommand\headrulewidth{0pt} %strip default header/footer stuff
+
+\setlength\intextsep{0pt}
+
+%add footers
+\lfoot{
+  \small   %small font. The double slashes is newline in fancyhdr
+  \textcolor{gray}{\Sexpr{paste( "Climate Change Vulnerbility Index Summary for ", as.character(ccvi$SNAME[i]), sep=" ")}\\Pennsylvania Natural Heritage Program }
+}
+\rfoot{
+  \small  
+  \textcolor{gray}{page \thepage \ of \ \pageref*{LastPage}}
+}
+
+\begin{document}
+%\RaggedRight
+\catcode`\_=11
+
+% Header
+\noindent
+\textbf{\LARGE{\Sexpr{paste(as.character(ccvi$SNAME[i]), " (",ccvi$SCOMNAME[i],")",sep="")}}}\\
+%\large A site of \underline{\Sexpr{nha_siterank} Significance} \
+\medskip \\
+
+\noindent Global Rank: \Sexpr{as.character(ccvi$GRank[i])} \\
+\noindent State Rank: \Sexpr{as.character(ccvi$SRank[i])} \\
+\noindent Climate Change Vulnerability Index: \Sexpr{as.character(ccvi$Index[i])} \\
+\noindent Confidence: \Sexpr{as.character(ccvi$Confidence[i])}  
+
+\begin{table}[h!]
+  \begin{center}
+    %\caption{Multirow table.}
+    \label{tab:table1}
+    \begin{tabular}{l|l}
+      %\textbf{CCVI Score} & \textbf{Description} \\
+      % $\alpha$ & $\beta$ & $\gamma$ \\
+ %     \hline
+      \cellcolor{red} \Sexpr{ifelse(ccvi$Index[i]=="EV",db_ccvi[which(db_ccvi$code==ccvi$Index[i]),"name"], db_ccvi[which(db_ccvi$code=="EV"),"name"])} & \multirow{5}{5cm}{ \cellcolor{orange} \Sexpr{db_ccvi[which(db_ccvi$code==ccvi$Index[i]),"description"]}} \\
+      \cellcolor{orange} \Sexpr{ifelse(ccvi$Index[i]=="HV",db_ccvi[which(db_ccvi$code==ccvi$Index[i]),"name"], db_ccvi[which(db_ccvi$code=="HV"),"name"])} & \\
+      \cellcolor{yellow} \Sexpr{ifelse(ccvi$Index[i]=="MV",db_ccvi[which(db_ccvi$code==ccvi$Index[i]),"name"], db_ccvi[which(db_ccvi$code=="MV"),"name"])} & \\
+      \cellcolor{green} \Sexpr{ifelse(ccvi$Index[i]=="LV",db_ccvi[which(db_ccvi$code==ccvi$Index[i]),"name"], db_ccvi[which(db_ccvi$code=="LV"),"name"])} & \\
+      \cellcolor{gray} \Sexpr{ifelse(ccvi$Index[i]=="IE",db_ccvi[which(db_ccvi$code==ccvi$Index[i]),"name"], db_ccvi[which(db_ccvi$code=="IE"),"name"])} & \\
+%      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\noindent Habitat:   \\
+
+\noindent Current Threats: \\
+
+\noindent Main Factors Contributing to Vulnerability Rank: \\
+
+
+
+\noindent References: \\
+
+
+
+\bigskip
+% the next line moves the recommended citation to the bottom of the page
+\vspace*{\fill}
+%%%  Recommended Citation %%% 
+
+\Sexpr{as.character(ccvi$Assessor[i])}\\
+\Sexpr{as.character(ccvi$DatePasted[i])}\\
+
+\setlength{\fboxsep}{5pt}
+\fbox{
+ \begin{minipage}[c]{0.2\linewidth}
+  \includegraphics[width=1.0\linewidth]{PNHP_New_Logo_cmpact}%png logo file at repository root
+ \end{minipage}%
+ \begin{minipage}[c]{0.75\linewidth}
+   This Climate Change Vulnerability Assessment was developed with funding from the X.  \\ \\ Please cite this CCVI as: \\ 
+   Pennsylvania Natural Heritage Program. \Sexpr{format(Sys.Date(), "%Y")}. \Sexpr{as.character(ccvi$SNAME[i])} NHA. Created on \Sexpr{format(Sys.Date(), "%d %b %Y")}. Available at: \href{\Sexpr{url_CCVIpage}}{\Sexpr{url_CCVIpage}}   
+  \end{minipage}
+}
+
+
+
+\end{document}
+
